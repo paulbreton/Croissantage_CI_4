@@ -9,6 +9,11 @@ class Student extends Model
     // Le nom de la table MySQL
     protected $table = 'Student';
 
+    public function role()
+    {
+        return Rigths::where('idS', 1)->get();
+    }
+
     protected $returnType = '\App\Entities\Student';
     protected $primaryKey = 'id';
 

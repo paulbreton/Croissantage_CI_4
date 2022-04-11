@@ -1,1 +1,1 @@
-<h1>Welcom <?= esc($user) ?></h1>
+<!--<h1>Welcome <?= esc($user) ?></h1>-->

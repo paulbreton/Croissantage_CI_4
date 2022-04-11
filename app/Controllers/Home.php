@@ -9,10 +9,14 @@ class Home extends Controller
     public function index()
     {
         $session = session();
+        $user = \App\Models\Student::find(1);
+
         $data = [
-            "user" => $session->get('alias')
+            //"user" => $session->get('alias'),
+            "user" => $user,
+            "role" => $user->role()
         ];
 
-        echo view('home', $data);
+        echo json_encode($data);
     }
 }

@@ -21,6 +21,7 @@ class Login extends Controller
         $alias = $this->request->getVar('alias');
         $pwd = $this->request->getVar('pwd');
         $data = $model->where('alias', $alias)->first();
+
         if ($data) {
             $pass = $data['pwd'];
             $verify_pass = password_verify($pwd, $pass);
@@ -28,7 +29,7 @@ class Login extends Controller
                 $ses_data = [
                     'alias' => $data['alias'],
                     'login' => $data['loggin'],
-                    'logged_in' => TRUE
+                    'logged_in' => TRUE,
                 ];
                 $session->set($ses_data);
                 return redirect()->to('/');
